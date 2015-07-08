@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page_styles %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2 class="text-center">Who we are</h2>
+
+                <p>We are the coolest fishing team in all of Brunswick County.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
