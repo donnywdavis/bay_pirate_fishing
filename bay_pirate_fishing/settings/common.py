@@ -7,8 +7,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-ENVIRONMENT = os.getenv('ENVIRONMENT')
-SECRET_KEY = os.getenv('SECRET_KEY')
+ENVIRONMENT = os.environ.get('DJANGO_ENVIRONMENT')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # Application definition
 
