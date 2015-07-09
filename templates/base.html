@@ -38,7 +38,7 @@
                         <li {% ifequal request.path '/' %}class="active"{% endifequal %}><a href="{% url 'home' %}">Home</a></li>
                         <li {% ifequal request.path '/about/' %}class="active"{% endifequal %}><a href="{% url 'about' %}">About</a></li>
                         <li {% ifequal request.path '/blog/' %}class="active"{% endifequal %}><a href="{% url 'home' %}">Blog</a></li>
-                        <li {% ifequal request.path '/schedule/' %}class="active"{% endifequal %}><a href="{% url 'home' %}">Schedule</a></li>
+                        <li {% ifequal request.path '/schedule/' %}class="active"{% endifequal %}><a href="{% url 'schedule:index' %}">Schedule</a></li>
                     </ul>
                 </div><!--/.navbar-collapse -->
             </div>

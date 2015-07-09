@@ -1,4 +1,6 @@
+import datetime
 from django.shortcuts import render
+from schedule.models import Event
 
 
 def home(request):
@@ -9,7 +11,12 @@ def home(request):
     :return: Render the template to the browser.
     """
 
-    return render(request, 'index.html', {})
+    events = Event.objects.filter(end_date__gte=datetime.date.today())[:3]
+    context = {
+        'events': events
+    }
+
+    return render(request, 'index.html', context)
 
 
 def about(request):
