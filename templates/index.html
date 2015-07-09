@@ -13,15 +13,38 @@
     <div class="container middle">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
+            <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
                 <h2>Recent Posts</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                 <p><a class="btn btn-default" href="{% url 'home' %}" role="button">Read more &raquo;</a></p>
             </div>
-            <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                <h2>Schedule</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-default" href="{% url 'home' %}" role="button">View schdule &raquo;</a></p>
+            <div class="col-md-4 col-sm-5 col-sm-offset-1">
+                <h2>Upcoming Events</h2>
+                {% if events %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Event name</th>
+                                    <th>Start date</th>
+                                    <th>End date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for event in events %}
+                                    <tr>
+                                        <td>{{ event.name }}</td>
+                                        <td>{{ event.start_date }}</td>
+                                        <td>{{ event.end_date }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>No events</p>
+                {% endif %}
+                <p><a class="btn btn-default" href="{% url 'schedule:index' %}" role="button">Full schedule &raquo;</a></p>
             </div>
         </div>
     </div> <!-- /container -->
