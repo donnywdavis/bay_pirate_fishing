@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-center">2015 Schedule</h2>
+
+        {% if events %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Event name</th>
+                        <th>Location</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Ranking</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.name }}</td>
+                            <td>{{ event.location }}</td>
+                            <td>{{ event.start_date }}</td>
+                            <td>{{ event.end_date }}</td>
+                            <td>{{ event.rank }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No events</p>
+        {% endif %}
+    </div>
+{% endblock %}
