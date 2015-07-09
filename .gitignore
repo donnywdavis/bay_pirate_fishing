@@ -109,5 +109,8 @@ target/
 
 
 *.sqlite3
-static/static_root
+static/static_root/*
 */settings/dev.py
+
+# include
+!static/static_root/blank.txt
